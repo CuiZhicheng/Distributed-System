@@ -488,11 +488,6 @@ public class Worker1 extends Thread{
                     System.out.println("Answer First Check Finished");
                 }
                 System.out.println("Waiting for Next Iteration");
-                try{
-                    Thread.currentThread().sleep(1000);
-                }catch(InterruptedException ie){
-                    ie.printStackTrace();
-                }
                 response = Send2Master(Ready2Next);
                 if (response == -1) {
                     System.out.println("Iteration Finished");
@@ -559,7 +554,9 @@ public class Worker1 extends Thread{
 
             System.out.println("Waiting for Transmission");
             int sendresponse = Send2Master(Ready2Send);
+            System.out.println("Response of Ready2Send: " + sendresponse);
             while (sendresponse != 0) {
+                System.out.println("Other Worker Crashed, Wait Until Recovered.");
                 if (sendresponse == -1) break;
                 sendresponse = Send2Master(Ready2Send);
             }

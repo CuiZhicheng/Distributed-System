@@ -563,6 +563,7 @@ public class Worker extends Thread{
 
             System.out.println("Waiting for Transmission");
             int sendresponse = Send2Master(Ready2Send);
+            System.out.println("Response of Ready2Send: " + sendresponse);
             while (sendresponse != 0) {
                 if (sendresponse == -1)
                     break;

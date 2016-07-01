@@ -144,6 +144,8 @@ public class Manager{
             }
 
         }
+        if (HasCrashed)
+            WaitSignalFromWorker(workernumber, addresses, Signal);
     }
 
     public static void main(String[] args) {
